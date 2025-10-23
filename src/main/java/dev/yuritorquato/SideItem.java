@@ -20,12 +20,20 @@ public class SideItem {
         };
     }
 
+    public SideType getType() {
+        return type;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
     @Override
     public String toString() {
-        return "SideItem{" +
-                "type=" + type +
-                ", size='" + size + '\'' +
-                ", price=" + price +
-                '}';
+        return size + " " + type.getName() + " costs: " + "R$%.2f".formatted(type.getBasePrice());
     }
 }

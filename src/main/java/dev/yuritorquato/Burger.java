@@ -13,4 +13,13 @@ public class Burger {
     private double calculatePrice() {
         return type.getPrice();
     }
+
+    public BurgerType getType() {
+        return type;
+    }
+
+    @Override
+    public String toString() {
+        return type.getName() + " costs: " + "R$%.2f".formatted(type.getPrice());
+    }
 }

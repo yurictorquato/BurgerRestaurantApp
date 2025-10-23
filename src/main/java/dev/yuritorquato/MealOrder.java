@@ -24,6 +24,14 @@ public class MealOrder {
         this.sideItem = sideItem;
     }
 
+    private double calculateTotalPrice() {
+        double total = 0;
+
+        total += burger.getType().getPrice() + drink.getPrice() + sideItem.getPrice();
+
+        return total;
+    }
+
     public Burger getBurger() {
         return burger;
     }
@@ -34,5 +42,17 @@ public class MealOrder {
 
     public SideItem getSideItem() {
         return sideItem;
+    }
+
+    @Override
+    public String toString() {
+        return "-".repeat(70) +
+                "\nPedido: " +
+                "\nBurger: " + burger +
+                "\nDrink: " + drink +
+                "\nSide Item: " + sideItem +
+                "\nPreço Total: R$%.2f".formatted(calculateTotalPrice()) +
+                "\n" +
+                "-".repeat(70);
     }
 }
